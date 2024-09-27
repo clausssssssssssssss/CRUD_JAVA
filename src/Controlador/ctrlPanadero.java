@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.util.HashSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -76,7 +75,7 @@ public class ctrlPanadero implements MouseListener, KeyListener{
             if (vista.txtNombreP.getText().isEmpty() || vista.txtEdadP.getText().isEmpty() || vista.txtPesoP.getText().isEmpty() || vista.txtCorreoP.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(vista, "Debes seleccionar un registro para actualizar", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                try {
+                
                     //Asignar lo de la vista al modelo al momento de darle clic a actualizar
                     modelo.setNombre_Panadero(vista.txtNombreP.getText());
                     modelo.setEdad_Panadero(Integer.parseInt(vista.txtEdadP.getText()));
@@ -87,9 +86,7 @@ public class ctrlPanadero implements MouseListener, KeyListener{
                     modelo.Actualizar(vista.jtbPanaderos);
                     modelo.Mostrar(vista.jtbPanaderos);
                     modelo.limpiar(vista);
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(vista, "La edad debe ser un número", "Error", JOptionPane.WARNING_MESSAGE);
-                }
+                
             }
         }
 
@@ -104,37 +101,30 @@ public class ctrlPanadero implements MouseListener, KeyListener{
 
     @Override
     public void mousePressed(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void keyTyped(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
    

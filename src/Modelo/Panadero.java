@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 import Vista.frmPanaderos;
@@ -15,10 +11,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.ClaseConexion;
 
-/**
- *
- * @author Estudiante
- */
+
 public class Panadero {
     //1- Parametros
     String UUID_Panadero;
@@ -67,7 +60,7 @@ public class Panadero {
     }
     String Correo_Panadero;
     
-    //2- Getters y Setters
+
 
     
     
@@ -83,8 +76,8 @@ public class Panadero {
             addPanadero.setString(1, UUID.randomUUID().toString());
             addPanadero.setString(2, getNombre_Panadero());
             addPanadero.setInt(3, getEdad_Panadero());
-            addPanadero.setDouble(4, getPeso_Panadero());
-             addPanadero.setString(4, getCorreo_Panadero());
+            addPanadero.setInt(4, getPeso_Panadero());
+             addPanadero.setString(5, getCorreo_Panadero());
  
             //Ejecutar la consulta
             addPanadero.executeUpdate();
@@ -106,7 +99,7 @@ public class Panadero {
         String miId = tabla.getValueAt(filaSeleccionada, 0).toString();
         //borramos 
         try {
-            String sql = "delete from tbPanadera where UUID = ?";
+            String sql = "delete from tbPanadero where UUID_Panadero = ?";
             PreparedStatement deletePanadero = conexion.prepareStatement(sql);
             deletePanadero.setString(1, miId);
             deletePanadero.executeUpdate();
@@ -124,18 +117,18 @@ public class Panadero {
 
         if (filaSeleccionada != -1) {
             //Obtenemos el id de la fila seleccionada
-            String miUUId = tabla.getValueAt(filaSeleccionada, 0).toString();
+            String UUID_Panadero = tabla.getValueAt(filaSeleccionada, 0).toString();
 
             try {
                 //Ejecutamos la Query
-                String sql = "update tbCRUD set Nombre_Panadero= ?, Edad_Panadero= ?, Peso_Panadero= ?, Correo_Panadero= ? where UUID = ?";
+                String sql = "update tbPanadero set Nombre_Panadero= ?, Edad_Panadero= ?, Peso_Panadero= ?, Correo_Panadero= ? where UUID_Panadero = ?";
                 PreparedStatement updateUser = conexion.prepareStatement(sql);
 
                 updateUser.setString(1, getNombre_Panadero());
                 updateUser.setInt(2, getEdad_Panadero());
-                updateUser.setDouble(3, getPeso_Panadero());
-                updateUser.setString(3, getCorreo_Panadero());
-                updateUser.setString(4, miUUId);
+                updateUser.setInt(3, getPeso_Panadero());
+                updateUser.setString(4, getCorreo_Panadero());
+                updateUser.setString(5, UUID_Panadero);
                 updateUser.executeUpdate();
 
             } catch (Exception e) {
