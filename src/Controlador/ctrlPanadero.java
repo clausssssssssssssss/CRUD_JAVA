@@ -23,7 +23,7 @@ public class ctrlPanadero implements MouseListener, KeyListener{
     private frmPanaderos vista;
     private Panadero modelo;
     
-      public ctrlPanadero(Panadero modelo, frmPanaderos vista) {
+      public ctrlPanadero(frmPanaderos vista, Panadero modelo) {
         this.modelo = modelo;
         this.vista = vista;
 
@@ -49,13 +49,13 @@ public class ctrlPanadero implements MouseListener, KeyListener{
                     //Asignar lo de la vista al modelo
                     modelo.setNombre_Panadero(vista.txtNombreP.getText());
                     modelo.setEdad_Panadero(Integer.parseInt(vista.txtEdadP.getText()));
-                    modelo.setPeso_Panadero(vista.txtPesoP.getText());
+                    modelo.setPeso_Panadero(Integer.parseInt(vista.txtPesoP.getText()));
                     modelo.setCorreo_Panadero(vista.txtCorreoP.getText());
 
                     //Ejecutar el metodo 
                     modelo.Guardar();
                     modelo.Mostrar(vista.jtbPanaderos);
-                    modelo.Limpiar(vista);
+                    modelo.limpiar(vista);
                 } catch (Exception ex) {
                     JOptionPane.showMessageDialog(vista, "La edad debe ser un número", "Error", JOptionPane.WARNING_MESSAGE);
                 }
@@ -80,7 +80,7 @@ public class ctrlPanadero implements MouseListener, KeyListener{
                     //Asignar lo de la vista al modelo al momento de darle clic a actualizar
                     modelo.setNombre_Panadero(vista.txtNombreP.getText());
                     modelo.setEdad_Panadero(Integer.parseInt(vista.txtEdadP.getText()));
-                    modelo.setPeso_Panadero(vista.txtPesoP.getText());
+                    modelo.setPeso_Panadero(Integer.parseInt(vista.txtPesoP.getText()));
                     modelo.setCorreo_Panadero(vista.txtCorreoP.getText());
 
                     //Ejecutar el método    
@@ -97,7 +97,7 @@ public class ctrlPanadero implements MouseListener, KeyListener{
             modelo.limpiar(vista);
         }
 
-        if (e.getSource() == vista.tbEstudiantes) {
+        if (e.getSource() == vista.jtbPanaderos) {
             modelo.cargarDatosTabla(vista);
         }
     }

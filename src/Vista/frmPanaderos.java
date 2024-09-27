@@ -18,10 +18,11 @@ public class frmPanaderos extends javax.swing.JFrame {
      */
     public frmPanaderos() {
         initComponents();
+        this.setLocationRelativeTo(this);
     }
 
     
-    public static void initProductos(){
+    public static void initPanaderia(){
         Panadero Modelo = new Panadero();
         frmPanaderos Vista = new frmPanaderos();
         ctrlPanadero Controlador = new ctrlPanadero(Vista, Modelo);
@@ -243,7 +244,7 @@ public class frmPanaderos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmPanaderos().setVisible(true);
+                initPanaderia();
             }
         });
     }
